@@ -99,13 +99,15 @@ export const renderCart = () => {
     contenedorCarrito.appendChild(totalDiv);
 
   // Botón para vaciar carrito
+  
     const btnVaciar = document.createElement("button");
     btnVaciar.textContent = "Vaciar Carrito";
     btnVaciar.addEventListener("click", () => {
     vaciarCarrito();
     renderCart();
     });
-    contenedorCarrito.appendChild(btnVaciar);
+    if (carrito.length > 0){
+     contenedorCarrito.appendChild(btnVaciar);}
 };
 
 // Render inicial al cargar la página
