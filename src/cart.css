@@ -1,64 +1,74 @@
-
-/* ======= Carrito ======= */
-#carrito {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    width: 250px;
-    background-color: #fff8f0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+/* Centrar el contenedor del carrito */
+.carrito-contenedor {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    margin-top: 20px;       /* separa del h1 */
 }
 
-.item-carrito {
-    display: flex;
-    justify-content: space-between;
+/* Estilo del h1 */
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
+/* Estilo general del carrito */
+#carrito {
+    width: 350px; /* ancho fijo para que se vea rectangular */
+    background-color: #fff8f0;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+}
+
+/* Cada item dentro del carrito */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* alinea verticalmente */
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fffdf5;
+}
+
+/* Nombre y cantidad del producto */
+.item-carrito span:nth-child(1) {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    flex: 1; /* ocupa todo el espacio disponible */
+    margin-right: 10px; /* separación del precio */
+}
+
+/* Precio del producto */
+.item-carrito span:nth-child(2) {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Botón eliminar */
 .item-carrito button {
     background-color: #ff6347;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     color: white;
     cursor: pointer;
-    padding: 2px 6px;
+    padding: 4px 8px;
+    font-weight: bold;
 }
 
 .item-carrito button:hover {
     background-color: #e5533d;
 }
 
+/* Total del carrito */
 .total-carrito {
     font-weight: bold;
-    margin-top: 10px;
-}
-
-#carrito button:last-child {
-    margin-top: 10px;
-    width: 100%;
-}
-
-.carrito-link {
-    position: relative;
-    display: inline-block;
-}
-
-.icono-carrito {
-    width: 32px;
-    height: 32px;
-}
-
-#contador-carrito {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #28a745; /* verde */
-    color: white;
-    padding: 2px 6px;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: bold;
+    margin-top: 15px;
+    text-align: right;
 }

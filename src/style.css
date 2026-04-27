@@ -75,7 +75,7 @@ header nav a:hover {
     width: 100%;
     border: none;
     border-radius: 5px;
-    background-color: #ffcccb;
+    background-color: #f3cfce;
     cursor: pointer;
     font-weight: bold;
 }
@@ -179,4 +179,12 @@ header nav a:hover {
     border-radius: 50%;
     font-size: 12px;
     font-weight: bold;
+}
+
+.producto img {
+    width: 100%;        /* ancho se adapta al contenedor de la tarjeta */
+    height: 150px;      /* todas la misma altura */
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
 }

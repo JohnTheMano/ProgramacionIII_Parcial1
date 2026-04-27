@@ -85,8 +85,10 @@ export const renderCart = () => {
     const div = document.createElement("div");
     div.className = "item-carrito";
     div.innerHTML = `
-        <span>${item.nombre} x ${item.cantidad}</span>
-        <span>$${item.precio * item.cantidad}</span>
+        <div class="info">
+            <span>${item.nombre} x ${item.cantidad}</span>
+            <span>$${item.precio * item.cantidad}</span>
+        </div>
         <button class="btn-eliminar">X</button>
     `;
 

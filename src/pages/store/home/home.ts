@@ -25,6 +25,7 @@ const mostrarProductos = (productos: Producto[]) => {
         const div = document.createElement("div");
         div.className = "producto";
         div.innerHTML = `
+            <img src="${p.imagen}" alt="${p.nombre}" class="producto-img">
             <h3>${p.nombre}</h3>
             <p>Precio: $${p.precio}</p>
             <button class="btn-agregar">Agregar al carrito</button>
