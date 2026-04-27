@@ -11,15 +11,18 @@
 <body>
 
   <header class="header">
-    <h1>Bienvenido a la Pizzería</h1>
+    <h1>FOOD STORE</h1>
 
     <div class="search">
-      <input type="text" placeholder="Buscar pizza...">
+      <input type="text" placeholder="Buscar producto...">
     </div>
 
     <nav>
-      <a href="../cart/cart.html">Carrito</a>
-    </nav>
+  <a href="../cart/cart.html" class="carrito-link">
+    <img src="../../../assets/cart_logo.png" alt="Carrito" class="icono-carrito">
+    <span id="contador-carrito">0</span>
+  </a>
+</nav>
   </header>
 
   <!-- NUEVO CONTENEDOR -->
@@ -38,6 +41,7 @@
   </div>
 
   <script type="module" src="./home.ts"></script>
+  <div id="mensaje-carrito"></div>
 </body>
 
 </html>

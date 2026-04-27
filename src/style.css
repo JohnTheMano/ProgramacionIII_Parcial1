@@ -128,3 +128,55 @@ header nav a:hover {
 .layout main {
     flex: 1;
 }
+
+#mensaje-carrito {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #ff6347;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: none; /* Por defecto está oculto */
+    z-index: 1000;
+    font-weight: bold;
+}
+#mensaje-carrito {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #28a745;   /* verde éxito */
+    color: white;
+    padding: 15px;           
+    border-radius: 12px;      
+    display: none;
+    z-index: 1000;
+    font-weight: bold;
+    text-align: center;
+    min-width: 120px;        
+    max-width: 200px;        
+    word-wrap: break-word;    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* opcional, da profundidad */
+}
+.carrito-link {
+    position: relative;
+    display: inline-block;
+}
+
+.icono-carrito {
+    width: 32px;
+    height: 32px;
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #28a745; /* verde */
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+}

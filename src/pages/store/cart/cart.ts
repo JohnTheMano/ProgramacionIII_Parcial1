@@ -35,14 +35,18 @@ export const agregarAlCarrito = (producto: Producto, cantidad: number = 1) => {
         carrito.push({ ...producto, cantidad });
     }
     guardarCarrito(carrito);
+    
     renderCart();
+    actualizarContadorCarrito();
 };
 // Eliminar un producto del carrito
 export const eliminarDelCarrito = (id: number) => {
     let carrito = obtenerCarrito();
     carrito = carrito.filter(item => item.id !== id);
     guardarCarrito(carrito);
+    
     renderCart();
+    actualizarContadorCarrito();
 };
 
 // Cambiar la cantidad de un producto
@@ -52,7 +56,9 @@ export const cambiarCantidad = (id: number, cantidad: number) => {
     if (index !== -1) {
     carrito[index].cantidad = cantidad;
     guardarCarrito(carrito);
+    
     renderCart();
+    actualizarContadorCarrito();
     }
 };
 
@@ -112,3 +118,15 @@ export const renderCart = () => {
 
 // Render inicial al cargar la página
 renderCart();
+
+// Actualiza el número del carrito en el header
+const actualizarContadorCarrito = () => {
+    const contador = document.getElementById("contador-carrito");
+    if (!contador) return;
+
+    const carrito = obtenerCarrito();
+    const total = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+
+    contador.textContent = total.toString();
+};
+actualizarContadorCarrito(); // muestra el número correcto cuando cargue la página

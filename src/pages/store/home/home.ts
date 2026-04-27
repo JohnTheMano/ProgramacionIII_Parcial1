@@ -3,6 +3,13 @@ import { PRODUCTS, getCategories } from "../../../data/data";
 import type { Producto } from "../../../types/product";
 import { agregarAlCarrito } from "../../../pages/store/cart/cart"; // Ajusta la ruta si tu cart.ts está en otra carpeta
 
+
+
+const contenedorMensaje = document.getElementById("mensaje-carrito");
+if (contenedorMensaje) contenedorMensaje.style.display = "none";
+
+
+
 // Función para renderizar productos en el DOM
 const mostrarProductos = (productos: Producto[]) => {
     const contenedor = document.getElementById("productos");
@@ -28,6 +35,7 @@ const mostrarProductos = (productos: Producto[]) => {
         const btn = div.querySelector(".btn-agregar") as HTMLButtonElement;
         btn.addEventListener("click", () => {
             agregarAlCarrito(p, 1); // Se agrega 1 unidad al carrito
+            mostrarMensaje(`${p.nombre} agregado al carrito`);
             
         });
     });
@@ -67,3 +75,14 @@ inputBusqueda.addEventListener("input", () => {
 
     mostrarProductos(filtrados);
 });
+
+const mostrarMensaje = (texto: string) => {
+    const contenedor = document.getElementById("mensaje-carrito");
+    if (!contenedor) return;
+    contenedor.textContent = texto;
+    contenedor.style.display = "block";
+    setTimeout(() => {
+        contenedor.style.display = "none";
+    }, 1500); // desaparece después de 1.5 segundos
+};
+

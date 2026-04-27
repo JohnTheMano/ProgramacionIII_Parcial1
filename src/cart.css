@@ -40,3 +40,25 @@
     margin-top: 10px;
     width: 100%;
 }
+
+.carrito-link {
+    position: relative;
+    display: inline-block;
+}
+
+.icono-carrito {
+    width: 32px;
+    height: 32px;
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #28a745; /* verde */
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+}
