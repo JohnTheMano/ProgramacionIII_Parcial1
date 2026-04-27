@@ -9,6 +9,11 @@ const mostrarProductos = (productos: Producto[]) => {
     if (!contenedor) return;
     contenedor.innerHTML = "";
 
+    // Agregado por si una busqueda no arroja resultados
+    if (productos.length === 0) {
+        contenedor.innerHTML = "<p>No se encontraron productos</p>";
+        return;
+    }
     productos.forEach((p: Producto) => {
         const div = document.createElement("div");
         div.className = "producto";
@@ -50,3 +55,15 @@ if (contenedorCategorias) {
     btnTodos.addEventListener("click", () => mostrarProductos(PRODUCTS));
     contenedorCategorias.appendChild(btnTodos);
 }
+
+//BÚSQUEDA por nombre
+const inputBusqueda = document.querySelector(".search input") as HTMLInputElement;
+inputBusqueda.addEventListener("input", () => {
+    const texto = inputBusqueda.value.toLowerCase();
+
+    const filtrados = PRODUCTS.filter(p =>
+        p.nombre.toLowerCase().includes(texto)
+    );
+
+    mostrarProductos(filtrados);
+});

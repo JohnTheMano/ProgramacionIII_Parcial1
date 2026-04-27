@@ -5,31 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Pizzas - Home</title>
-  <link rel="stylesheet" href="../../../style.css"> <!-- tu CSS general -->
+  <link rel="stylesheet" href="../../../style.css">
 </head>
 
 <body>
 
-  <header>
+  <header class="header">
     <h1>Bienvenido a la Pizzería</h1>
+
+    <div class="search">
+      <input type="text" placeholder="Buscar pizza...">
+    </div>
+
     <nav>
-      <a href="../../../index.html">Inicio</a>
       <a href="../cart/cart.html">Carrito</a>
     </nav>
   </header>
 
-  <section id="filtros">
-    <h2>Categorías</h2>
-    
-    <!-- Aquí se van a crear los botones de cada categoría desde home.ts -->
-    <div id="categorias"></div>
-  </section>
+  <!-- NUEVO CONTENEDOR -->
+  <div class="layout">
+    <nav>
+      <section id="filtros">
+        <h2>Categorías</h2>
+        <div id="categorias"></div>
+      </section>
+    </nav>
 
-  <main>
-    <h2>Productos</h2>
-    <!-- Aquí se van a mostrar los productos desde home.ts -->
-    <div id="productos"></div>
-  </main>
+    <main>
+      <h2>Productos</h2>
+      <div id="productos"></div>
+    </main>
+  </div>
 
   <script type="module" src="./home.ts"></script>
 </body>
