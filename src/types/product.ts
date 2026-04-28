@@ -1,12 +1,18 @@
-export interface Producto{
-    id:number;
-    nombre: string;
-    categoria:string;
-    precio:number;
-    imagen?:string; //el ? para que sea opcional
-}
+import type { ICategory } from "./category";
 
-export interface ItemCarrito extends Producto {
+export interface Product {
+    id: number;
+    eliminado: boolean;
+    createdAt: string;
+    nombre: string;
+    precio: number;
+    descripcion: string;
+    stock: number;
+    imagen: string;
+    disponible: boolean;
+    categorias: ICategory[];
+}
+export interface ItemCarrito extends Product {
     cantidad: number; //: Añade una nueva propiedad específica a ItemCarrito que no está en Producto o sea, la cantidad de ese producto que el usuario quiere comprar.
 }
 

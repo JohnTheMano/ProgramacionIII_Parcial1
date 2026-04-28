@@ -1,6 +1,6 @@
 // Importamos productos y funciones del carrito
 import { PRODUCTS, getCategories } from "../../../data/data";
-import type { Producto } from "../../../types/product";
+import type { Product } from "../../../types/product";
 import { agregarAlCarrito } from "../../../pages/store/cart/cart"; // Ajusta la ruta si tu cart.ts está en otra carpeta
 
 
@@ -11,7 +11,7 @@ if (contenedorMensaje) contenedorMensaje.style.display = "none";
 
 
 // Función para renderizar productos en el DOM
-const mostrarProductos = (productos: Producto[]) => {
+const mostrarProductos = (productos: Product[]) => {
     const contenedor = document.getElementById("productos");
     if (!contenedor) return;
     contenedor.innerHTML = "";
@@ -21,7 +21,7 @@ const mostrarProductos = (productos: Producto[]) => {
         contenedor.innerHTML = "<p>No se encontraron productos</p>";
         return;
     }
-    productos.forEach((p: Producto) => {
+    productos.forEach((p: Product) => {
         const div = document.createElement("div");
         div.className = "producto";
         div.innerHTML = `
@@ -51,10 +51,10 @@ const contenedorCategorias = document.getElementById("categorias");
 if (contenedorCategorias) {
     categorias.forEach(cat => {
         const btn = document.createElement("button");
-        btn.textContent = cat;
+        btn.textContent = cat.nombre;
         btn.addEventListener("click", () => {
-            const filtrados = PRODUCTS.filter(p => p.categoria === cat);
-            mostrarProductos(filtrados);
+        const filtrados = PRODUCTS.filter(p => p.categorias[0].nombre === cat.nombre);
+        mostrarProductos(filtrados);
         });
         contenedorCategorias.appendChild(btn);
     });

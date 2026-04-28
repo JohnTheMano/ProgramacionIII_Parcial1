@@ -1,5 +1,5 @@
 // Importamos las interfaces
-import type { Producto, ItemCarrito } from "../../../types/product";
+import type { Product, ItemCarrito } from "../../../types/product";
 
 // =======================
 // FUNCIONES DE LOCALSTORAGE
@@ -25,7 +25,7 @@ localStorage.removeItem("cart");
 // =======================
 
 // Agregar un producto al carrito
-export const agregarAlCarrito = (producto: Producto, cantidad: number = 1) => {
+export const agregarAlCarrito = (producto: Product, cantidad: number = 1) => {
     const carrito = obtenerCarrito();
     const index = carrito.findIndex(item => item.id === producto.id);
 
@@ -107,7 +107,7 @@ export const renderCart = () => {
     contenedorCarrito.appendChild(totalDiv);
 
   // Botón para vaciar carrito
-  
+
     const btnVaciar = document.createElement("button");
     btnVaciar.textContent = "Vaciar Carrito";
     btnVaciar.addEventListener("click", () => {
@@ -115,7 +115,7 @@ export const renderCart = () => {
     renderCart();
     });
     if (carrito.length > 0){
-     contenedorCarrito.appendChild(btnVaciar);}
+    contenedorCarrito.appendChild(btnVaciar);}
 };
 
 // Render inicial al cargar la página
