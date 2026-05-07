@@ -1,83 +1,62 @@
-# Proyecto: Protección de Rutas (Educativo)
+Proyecto Tienda Web – Programación III
+Descripción
 
-## ✍️ Descripción
+Este proyecto es una aplicación web de catálogo de productos con carrito de compras, desarrollada como parte de la materia Programación III de la Tecnicatura Universitaria en Programación a Distancia. Permite al usuario navegar por productos, filtrarlos por categorías, buscarlos por nombre y agregar productos a un carrito interactivo que se mantiene en el navegador mediante localStorage.
 
-Este es un proyecto de demostración creado con fines educativos para ilustrar un mecanismo básico de protección de rutas en el lado del cliente (frontend) utilizando **Vite** y **TypeScript**.
+Funcionalidades principales
+Catálogo de productos
+Muestra todos los productos disponibles al cargar la página.
+Permite filtrar productos por categorías activas.
+Incluye un botón “Todos” para volver a mostrar todos los productos.
+Búsqueda en tiempo real
+Campo de búsqueda donde los productos se filtran mientras el usuario escribe.
+La búsqueda es insensible a mayúsculas/minúsculas.
+Carrito de compras
+Agregar productos al carrito desde el catálogo.
+Incrementar o decrementar la cantidad de productos.
+Eliminar productos del carrito.
+Vaciar todo el carrito.
+El carrito se guarda en localStorage para mantener los datos al recargar la página.
+Contador de productos actualizado en tiempo real.
+Mensajes y notificaciones
+Mensaje temporal cuando se agrega un producto al carrito.
+Tecnologías utilizadas
+HTML5 / CSS3 / JavaScript (TypeScript)
+Vite como bundler y servidor de desarrollo.
+LocalStorage para persistencia de datos del carrito.
+Estructura del proyecto
+/src
+ ├─ /data
+ │    └─ data.ts          # Datos de productos y categorías
+ ├─ /pages
+ │    └─ /store
+ │         ├─ /home
+ │         │    └─ home.ts   # Renderizado del catálogo y búsqueda
+ │         └─ /cart
+ │              └─ cart.ts   # Lógica del carrito
+ ├─ /types
+ │    └─ product.ts       # Interfaces para productos y carrito
+Instalación y ejecución
 
-El objetivo es mostrar cómo se puede restringir el acceso a ciertas páginas según el rol de un usuario (por ejemplo, `ADMIN` o `CLIENT`).
+Clonar el repositorio:
 
----
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_PROYECTO>
 
-## ⚠️ ¡Importante! Nivel de Seguridad
+Instalar dependencias:
 
-La protección de rutas implementada en este proyecto **NO ES SEGURA** y no debe utilizarse en un entorno de producción.
+npm install
 
-- **Razón**: La lógica de autenticación se basa en datos guardados en `localStorage` en el navegador del usuario.
-- **Riesgo**: Cualquier usuario con conocimientos técnicos básicos puede abrir las herramientas de desarrollador del navegador para inspeccionar, modificar o eliminar los datos de `localStorage`, obteniendo así acceso no autorizado a rutas protegidas.
+Ejecutar en modo desarrollo:
 
-Este enfoque es útil únicamente para fines de aprendizaje y para prototipos de bajo riesgo. La seguridad real debe implementarse en el **backend**.
-
----
-
-## 🚀 Instalación y Uso
-
-Se recomienda usar `pnpm` como gestor de paquetes para mayor eficiencia en el manejo de dependencias.
-
-### 1. Instalar pnpm
-
-Si no tienes `pnpm` instalado, puedes hacerlo fácilmente a través de `npm` (que viene con Node.js) ejecutando el siguiente comando en tu terminal:
-
-```bash
-npm install -g pnpm
-```
-
-### 2. Instalar Dependencias del Proyecto
-
-Una vez en la carpeta raíz del proyecto, instala las dependencias necesarias con `pnpm`:
-
-```bash
-pnpm install
-```
-
-### 3. Ejecutar el Proyecto
-
-Para iniciar el servidor de desarrollo de Vite, ejecuta:
-
-```bash
-pnpm dev
-```
-
-La aplicación estará disponible en la URL que aparezca en la terminal (generalmente `http://localhost:5173`).
-
----
-
-## ⚙️ ¿Cómo Funciona la Protección de Rutas?
-
-El mecanismo es simple y se gestiona desde el código TypeScript en la carpeta `src/utils`:
-
-1.  **Inicio de Sesión**: Cuando un usuario se "loguea", su información (incluido su rol) se guarda como un string JSON en `localStorage`.
-2.  **Carga de Página Protegida**: Cada vez que se intenta cargar una página protegida (ej. la página de Administrador), se ejecuta un script de verificación (`checkAuhtUser` en `src/utils/auth.ts`).
-3.  **Verificación**: El script comprueba:
-    - Si existe un usuario en `localStorage`. Si no, redirige al login.
-    - Si el rol del usuario guardado coincide con el rol requerido para acceder a esa página. Si no coincide, lo redirige a una página de acceso denegado o a su "home" correspondiente.
-4.  **Cierre de Sesión (Logout)**: Al cerrar sesión, la información del usuario se elimina de `localStorage`.
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-/
-├── src/
-│   ├── pages/                # Contiene las páginas de la aplicación
-│   │   ├── admin/            # Páginas solo para administradores
-│   │   ├── auth/             # Páginas de autenticación (login, registro)
-│   │   └── client/           # Páginas solo para clientes
-│   ├── types/                # Define las interfaces y tipos (IUser, Rol)
-│   └── utils/                # Lógica reutilizable
-│       ├── auth.ts           # Función principal de verificación de rol y sesión
-│       ├── localStorage.ts   # Funciones para leer/escribir en localStorage
-│       └── navigate.ts       # Función para redirigir al usuario
-├── package.json              # Dependencias y scripts
-└── README.md                 # Este archivo
-```
+npm run dev
+Abrir la aplicación en el navegador con la URL que indica Vite (normalmente http://localhost:5173).
+Explicación breve del código
+home.ts: se encarga de renderizar los productos, generar los botones de filtrado por categoría y manejar la búsqueda en tiempo real.
+cart.ts: maneja todas las funciones del carrito de compras, como agregar, eliminar, actualizar cantidades y calcular el total, siempre sincronizado con localStorage.
+Las funciones están pensadas para que la UI y los datos estén siempre sincronizados, permitiendo una experiencia interactiva sin recargar la página.
+Posibles mejoras futuras
+Persistir el carrito en un backend real.
+Añadir autenticación de usuarios.
+Mejorar la UI/UX con animaciones y diseño responsive.
+Filtrado combinado por varias categorías o rangos de precios
