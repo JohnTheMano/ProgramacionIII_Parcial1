@@ -1,35 +1,6 @@
-/* ======= Estilo general ======= */
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-/* Para que el buscador quede en el medio */
-.search {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.search input {
-    width: 60%;
-    padding: 5px;
-}
-
-/* Opcional: que el título no se estire raro */
-.header h1 {
-    margin: 0;
-}
-
-/* El nav queda automáticamente a la derecha */
-nav {
-    display: flex;
-    gap: 10px;
-}
-
+/* =========================
+   BASE
+========================= */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -42,17 +13,23 @@ h1, h2 {
     text-align: center;
 }
 
-/* ======= Header ======= */
+/* =========================
+    HEADER GENERAL
+========================= */
 header {
     background-color: #ff6347;
     color: white;
     padding: 20px 0;
 }
 
+header nav {
+    display: flex;
+    gap: 10px;
+}
+
 header nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: bold;
 }
 
@@ -60,63 +37,34 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-/* ======= Sección de filtros ======= */
-#filtros {
-    padding: 20px;
-    background-color: #fff5f0;
-    margin-bottom: 20px;
-}
-
-#categorias button {
+/* =========================
+    HEADER LAYOUT INTERNO
+========================= */
+.header {
     display: flex;
-    margin: 5px;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    background-color: #f3cfce;
-    cursor: pointer;
-    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-#categorias button:hover {
-    background-color: #ff9999;
-}
-
-/* ======= Sección de productos ======= */
-#productos {
+.search {
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
 }
 
-.producto {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 200px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+.search input {
+    width: 60%;
+    padding: 5px;
 }
 
-.producto button {
-    margin-top: 10px;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff6347;
-    color: white;
-    cursor: pointer;
+.header h1 {
+    margin: 0;
 }
 
-.producto button:hover {
-    background-color: #e5533d;
-}
-
-/* ======= LAYOUT (LO NUEVO) ======= */
+/* =========================
+   LAYOUT GENERAL
+========================= */
 .layout {
     display: flex;
 }
@@ -129,62 +77,125 @@ header nav a:hover {
     flex: 1;
 }
 
-#mensaje-carrito {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+/* =========================
+    FILTROS
+========================= */
+#filtros {
+    padding: 20px;
+    background-color: #fff5f0;
+    margin-bottom: 20px;
+}
+
+#categorias button {
+    margin: 5px;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6347;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#categorias button:hover {
+    background-color: #ff9999;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto {
+    min-height: 320px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.producto img {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.producto button {
+    margin-top: 10px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
     background-color: #ff6347;
     color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    display: none; /* Por defecto está oculto */
-    z-index: 1000;
-    font-weight: bold;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
+.producto button:hover {
+    background-color: #e5533d;
+}
+
+/* =========================
+   MENSAJE CARRITO
+========================= */
 #mensaje-carrito {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #28a745;   /* verde éxito */
+    background-color: #28a745;
     color: white;
-    padding: 15px;           
-    border-radius: 12px;      
+    padding: 15px;
+    border-radius: 12px;
     display: none;
     z-index: 1000;
     font-weight: bold;
     text-align: center;
-    min-width: 120px;        
-    max-width: 200px;        
-    word-wrap: break-word;    
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* opcional, da profundidad */
+    min-width: 320px;
+    max-width: 900px;
+    word-wrap: break-word;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
+
+/* =========================
+   CARRITO ICONO
+========================= */
 .carrito-link {
     position: relative;
     display: inline-block;
 }
 
 .icono-carrito {
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
 }
 
 #contador-carrito {
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #28a745; /* verde */
+    background-color: #28a745;
     color: white;
     padding: 2px 6px;
     border-radius: 50%;
     font-size: 12px;
     font-weight: bold;
-}
-
-.producto img {
-    width: 100%;        /* ancho se adapta al contenedor de la tarjeta */
-    height: 150px;      /* todas la misma altura */
-    border-radius: 8px;
-    object-fit: cover;
-    margin-bottom: 10px;
 }
